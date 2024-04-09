@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
-export default function ProductCard({category, img, title, price, setAmount, prodid, setCart, cart}){
- const [product, setProduct] = useState({
-  title: title,
-  price: price,
-  prodid: prodid
- })
+import {Link} from 'react-router-dom'
+export default function ProductCard({productInfo, setAmount, setCart, cart}){
+const [product, setProduct] = useState({
+  title: productInfo.productname,
+  price: productInfo.price,
+  prodid: productInfo._id
+})
 
- useEffect(()=>{
+useEffect(()=>{
   countProducts()
- },[cart])
+},[cart])
 
   const handleClick = ()=>{
     const exist = cart.find(item => item.prodid === product.prodid)
@@ -23,13 +24,12 @@ export default function ProductCard({category, img, title, price, setAmount, pro
   const countProducts =()=>{
     setAmount(cart.reduce((total, item) => total + item.quantity, 0))
   }
- 
     return(
       <article>
-        <img src={"/website_images/PROD_"+img} alt={title} />
-        <a href="#">{category}</a>
-        <h3>{title}</h3>
-        <span>Kr.{price}</span>
+        <img src={productInfo.image} alt={productInfo.productname} />
+        <Link to={"/produkter/" + productInfo.catslug}>{productInfo.catname}</Link>
+        <h3>{productInfo.productname}</h3>
+        <span>Kr. {productInfo.price}</span>
         <button onClick={handleClick}>Legg i handlekurv</button>
       </article>
     )
