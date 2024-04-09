@@ -11,7 +11,7 @@ export const products= {
         },
         {
             title: "Produktlink",
-            name: "Producturl",
+            name: "producturl",
             type: "slug",
             options:{
                 source: "productname",

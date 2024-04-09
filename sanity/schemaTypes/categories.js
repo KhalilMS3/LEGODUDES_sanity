@@ -12,7 +12,7 @@ export const categories =
             },
             {
                 title: "Kategorilink",
-                name: "Categoryurl",
+                name: "categoryurl",
                 type: "slug",
                 options:{
                     source: "categorytitle",
