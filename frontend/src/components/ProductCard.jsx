@@ -27,12 +27,13 @@ useEffect(()=>{
     setAmount(cart.reduce((total, item) => total + item.quantity, 0))
   }
     return(
-      <article>
+      <article className="productCard">
         <img src={productInfo.image} alt={productInfo.productname} />
         <Link to={"/produkter/" + productInfo.catslug}>{productInfo.catname}</Link>
         <h3>{productInfo.productname}</h3>
         <span>Kr. {productInfo.price}</span>
         <button onClick={handleClick}>Legg i handlekurv</button>
+        <Link to={"/produkt/" + productInfo.slug}>Les mer</Link>
       </article>
     )
   }

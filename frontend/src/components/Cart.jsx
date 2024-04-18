@@ -23,6 +23,7 @@ function CartProduct({title, price, quantity, setCart, prodid}){
                 <ul id="cartlist">
                     {cart.map(product => <CartProduct key={product.prodid} prodid={product.prodid} setCart={setCart} title={product.title} price={product.price} quantity={product.quantity} />)}
                 </ul>
-            </section>
+        </section>
+        
     )
 }
